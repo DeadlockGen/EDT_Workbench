@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* IDEA-style dark theme base */
+html.dark body {
+  background-color: #2b2b2b;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Custom scrollbar - IntelliJ style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(165, 180, 198, 0.15);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(165, 180, 198, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Monaco Editor overrides */
+.monaco-editor .margin,
+.monaco-editor .monaco-editor-background {
+  background-color: transparent !important;
+}
+
+.monaco-scrollable-element { overflow: auto !important; }
+
+/* Module Tabs - IDEA style */
+.module-tabs .ant-tabs-nav {
+  margin-bottom: 0 !important;
+  padding-left: 8px;
+  padding-top: 4px;
+  background: transparent;
+}
+
+.module-tabs .ant-tabs-tab {
+  font-size: 12px !important;
+  padding: 3px 14px !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  margin-right: 0 !important;
+  transition: none !important;
+  border-right: 1px solid transparent;
+}
+
+.dark .module-tabs .ant-tabs-tab {
+  background: #3c3f41;
+  color: #a9b7c6;
+  border-right: 1px solid #4e5254;
+}
+
+.dark .module-tabs .ant-tabs-tab-active {
+  background: #2b2b2b !important;
+  color: #bbd7fb !important;
+  border-bottom: 2px solid #589df6 !important;
+}
+
+.module-tabs .ant-tabs-content-holder {
+  overflow: hidden;
+}
+
+.module-tabs .ant-tabs-content {
+  height: 100%;
+}
+
+.module-tabs .ant-tabs-tabpane {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* IDEA sidebar style */
+.dark .ant-layout-sider.sider-custom {
+  background: #3c3f41 !important;
+}
+
+.dark .ant-layout-sider.sider-custom .nav-item,
+.dark .ant-layout-sider.sider-custom .settings-item {
+  color: #a9b7c6;
+}
+
+.dark .ant-layout-sider.sider-custom .nav-item:hover,
+.dark .ant-layout-sider.sider-custom .settings-item:hover {
+  background: #4e5254 !important;
+}
+
+.dark .ant-layout-sider.sider-custom .nav-item-selected {
+  color: #bbd7fb !important;
+  background: #4e5254 !important;
+}
+
+.ant-layout-sider.sider-custom .ant-layout-sider-trigger {
+  background: #f5f5f5 !important;
+  color: #555555 !important;
+  border-top: 1px solid #e0e2e6;
+}
+
+.dark .ant-layout-sider.sider-custom .ant-layout-sider-trigger {
+  background: #3c3f41 !important;
+  color: #a9b7c6 !important;
+  border-top: 1px solid #4e5254;
+}
+
+/* IDEA selection color */
+.dark ::selection {
+  background: #214283;
+}
+
+/* Table and border adjustments for dark mode */
+.dark .ant-table {
+  background: #2b2b2b;
+}
+
+.dark .ant-table-thead > tr > th {
+  background: #2d2d2d;
+  color: #a9b7c6;
+}
+
+.dark .ant-table-row:hover > td {
+  background: #323232 !important;
+}

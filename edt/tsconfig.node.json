@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "outDir": "./out",
+    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "composite": true
+  },
+  "include": [
+    "electron/**/*.ts",
+    "electron.vite.config.ts",
+    "shared/**/*.ts",
+    "vite-env.d.ts"
+  ]
+}

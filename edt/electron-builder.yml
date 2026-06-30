@@ -1,0 +1,27 @@
+appId: com.edt.desktop
+productName: Enterprise Deployment Toolkit
+directories:
+  output: dist
+  buildResources: resources
+files:
+  - out/**/*
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: portable
+      arch:
+        - x64
+  icon: resources/icon.png
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: EDT
+portable:
+  artifactName: EDT-${version}-portable.${ext}
+extraResources:
+  - from: resources/
+    to: resources/

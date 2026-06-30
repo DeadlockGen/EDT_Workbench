@@ -1,0 +1,72 @@
+import { useState, useCallback } from 'react'
+import { Button, Radio } from 'antd'
+import { SplitPanel } from '@/components/layout/SplitPanel'
+import { FormatEditor } from '@/components/editor/MonacoEditor'
+
+function htmlEncode(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+function htmlDecode(str: string): string {
+  return str
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&#x27;/g, "'")
+    .replace(/&#x2F;/g, '/')
+}
+
+export default function HtmlPage() {
+  const [input, setInput] = useState('')
+  const [output, setOutput] = useState('')
+  const [mode, setMode] = useState<'encode' | 'decode'>('encode')
+
+  const handleConvert = useCallback(() => {
+    if (!input.trim()) return
+    try {
+      setOutput(mode === 'encode' ? htmlEncode(input) : htmlDecode(input))
+    } catch (e) {
+      setOutput('转换失败: ' + (e as Error).message)
+    }
+  }, [input, mode])
+
+  return (
+    <div className="h-full flex flex-col" style={{ padding: 12 }}>
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-xs font-medium">HTML 编解码</span>
+        <Radio.Group size="small" value={mode} onChange={(e) => { setMode(e.target.value); setOutput('') }}>
+          <Radio.Button value="encode">编码</Radio.Button>
+          <Radio.Button value="decode">解码</Radio.Button>
+        </Radio.Group>
+      </div>
+      <div className="flex-1 min-h-0">
+        <SplitPanel
+          left={
+            <div className="h-full flex flex-col">
+              <Button type="primary" size="small" className="mb-2 self-start" onClick={handleConvert}>
+                {mode === 'encode' ? '编码 →' : '解码 →'}
+              </Button>
+              <div className="flex-1 border rounded" style={{ borderColor: 'var(--ant-color-border)' }}>
+                <FormatEditor value={input} onChange={setInput} language="html" />
+              </div>
+            </div>
+          }
+          right={
+            <div className="h-full flex flex-col">
+              <div className="flex-1 border rounded" style={{ borderColor: 'var(--ant-color-border)' }}>
+                <FormatEditor value={output} language="html" readOnly />
+              </div>
+            </div>
+          }
+        />
+      </div>
+    </div>
+  )
+}
