@@ -1,4 +1,29 @@
---
+⚠️ 开篇先说两句 / A Few Words Before You Start
+嗨，感谢你点进这个项目 👋
+
+Hi, thanks for stopping by.
+
+这个工具是我作为一个新人开发者 (junior developer) 的早期作品。实话实说，项目里绝大部分代码都是在 Claude Code（一个 AI 编程辅助工具）的帮助下完成的。
+
+This is an early work from me as a junior developer. To be honest, the vast majority of the code was written with the help of Claude Code (an AI-powered coding assistant).
+
+所以：
+
+代码里可能有不规范、冗余、甚至隐藏的 bug —— 我还在学 🧑‍💻
+
+有些实现是"能跑就行"，未必是"最佳实践"
+
+但每个功能我都亲手测过，确保它能用
+
+So:
+
+There may be non-standard code, redundancy, or even hidden bugs — I'm still learning 🧑‍💻
+
+Some implementations follow "it works" rather than "best practices"
+
+But every feature has been manually tested and works as expected
+
+感谢你的包容 ❤️ Thanks for your understanding ❤️
 
 ## 📋 简介
 
